@@ -82,7 +82,7 @@ class Annotator:
             self.draw = ImageDraw.Draw(self.im)
             try:
                 font = check_font('Arial.Unicode.ttf' if non_ascii else font)
-                size = font_size or max(round(sum(self.im.size) / 2 * 0.035), 12)
+                size = font_size or max(round(sum(self.im.size) / 2 * 0.00035), 5)
                 self.font = ImageFont.truetype(str(font), size)
             except Exception:
                 self.font = ImageFont.load_default()
@@ -91,7 +91,7 @@ class Annotator:
                 self.font.getsize = lambda x: self.font.getbbox(x)[2:4]  # text width, height
         else:  # use cv2
             self.im = im
-        self.lw = line_width or max(round(sum(im.shape) / 2 * 0.003), 2)  # line width
+        self.lw = line_width or max(round(sum(im.shape) / 2 * 0.0003), 1)  # line width
         # Pose
         self.skeleton = [[16, 14], [14, 12], [17, 15], [15, 13], [12, 13], [6, 12], [7, 13], [6, 7], [6, 8], [7, 9],
                          [8, 10], [9, 11], [2, 3], [1, 2], [1, 3], [2, 4], [3, 5], [4, 6], [5, 7]]

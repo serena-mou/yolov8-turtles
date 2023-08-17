@@ -1,0 +1,34 @@
+# YOLOv5 🚀 by Ultralytics, GPL-3.0 license
+# COCO128 dataset https://www.kaggle.com/ultralytics/coco128 (first 128 images from COCO train2017) by Ultralytics
+# Example usage: python train.py --data coco128.yaml
+# parent
+# ├── yolov5
+# └── datasets
+#     └── coco128  ← downloads here (7 MB)
+
+
+# Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
+path: ../../Data/Turtles/turtle_datasets/
+train: 
+ - job10_041219-0-1000/split_data_1_class/train  # train images (relative to 'path') 
+ - job11_041219-1001-2000/split_data_1_class/train
+ - job12_041219-2000-3000/split_data_1_class/train
+ - 031216amnorth/split_data_1_class/train
+ - 031216AMsouth/split_data_1_class/train
+ - 081220-0310AMsouth-ME2D/split_data_1_class/train
+val:   # val images (relative to 'path') 
+ - job10_041219-0-1000/split_data_1_class/valid  # validation images (relative to 'path') 
+ - job11_041219-1001-2000/split_data_1_class/valid
+ - job12_041219-2000-3000/split_data_1_class/valid
+ - 031216amnorth/split_data_1_class/valid
+ - 031216AMsouth/split_data_1_class/valid
+ - 081220-0310AMsouth-ME2D/split_data_1_class/valid
+test:  # test images (optional)
+ - job10_041219-0-1000/split_data_1_class/test  # test images (relative to 'path') 
+ - job11_041219-1001-2000/split_data_1_class/test
+ - job12_041219-2000-3000/split_data_1_class/test
+ - 031216amnorth/split_data_1_class/test
+ - 031216AMsouth/split_data_1_class/test
+ - 081220-0310AMsouth-ME2D/split_data_1_class/test
+names:
+  0: turtle
