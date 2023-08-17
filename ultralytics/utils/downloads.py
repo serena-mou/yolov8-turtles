@@ -125,12 +125,12 @@ def unzip_file(file, path=None, exclude=('.DS_Store', '__MACOSX'), exist_ok=Fals
         if extract_path.exists() and any(extract_path.iterdir()) and not exist_ok:
             # If it exists and is not empty, return the path without unzipping
             LOGGER.info(f'Skipping {file} unzip (already unzipped)')
-            return path
+            return extract_path
 
         for f in tqdm(files, desc=f'Unzipping {file} to {Path(path).resolve()}...', unit='file', disable=not progress):
             zipObj.extract(f, path=path)
 
-    return path  # return unzip dir
+    return extract_path  # return unzip dir
 
 
 def check_disk_space(url='https://ultralytics.com/assets/coco128.zip', sf=1.5, hard=True):
@@ -288,7 +288,7 @@ def safe_download(url,
 
         unzip_dir = dir or f.parent  # unzip to dir if provided else unzip in place
         if is_zipfile(f):
-            unzip_dir = unzip_file(file=f, path=unzip_dir)  # unzip
+            unzip_dir = unzip_file(file=f, path=unzip_dir, progress=progress)  # unzip
         elif f.suffix in ('.tar', '.gz'):
             LOGGER.info(f'Unzipping {f} to {unzip_dir.resolve()}...')
             subprocess.run(['tar', 'xf' if f.suffix == '.tar' else 'xfz', f, '--directory', unzip_dir], check=True)
