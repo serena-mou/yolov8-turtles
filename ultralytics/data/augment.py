@@ -467,7 +467,7 @@ class RandomPerspective:
         labels['resized_shape'] = img.shape[:2]
         return labels
 
-    def box_candidates(self, box1, box2, wh_thr=2, ar_thr=100, area_thr=0.005, eps=1e-16):  # box1(4,n), box2(4,n)
+    def box_candidates(self, box1, box2, wh_thr=2, ar_thr=20, area_thr=0.1, eps=1e-16):  # box1(4,n), box2(4,n)
         # Compute box candidates: box1 before augment, box2 after augment, wh_thr (pixels), aspect_ratio_thr, area_ratio
         w1, h1 = box1[2] - box1[0], box1[3] - box1[1]
         w2, h2 = box2[2] - box2[0], box2[3] - box2[1]
