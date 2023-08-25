@@ -1,9 +1,9 @@
 from ultralytics import YOLO
 
-model = YOLO('weights/yolov8x-cls.pt')
+model = YOLO('weights/yolov8s-cls.pt')
 
 model.train(data='../../Data/Turtles/classifier',
-            pretrained=False,
+            pretrained=True,
             epochs=100,
             imgsz=64
             )
