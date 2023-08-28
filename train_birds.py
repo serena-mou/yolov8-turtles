@@ -5,11 +5,9 @@ model = YOLO('weights/yolov8m.pt')
 # train the model
 model.train(data='data/LF.yaml',
             pretrained=True,
-            lr0=0.01,
             epochs=100,
-            imgsz=640,
+            imgsz=416,
             workers=4,
-            amp=False,
             batch=-1
             )
 print('done')
