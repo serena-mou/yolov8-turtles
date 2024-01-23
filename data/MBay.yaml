@@ -8,7 +8,7 @@
 
 
 # Train/val/test sets as 1) dir: path/to/imgs, 2) file: path/to/imgs.txt, or 3) list: [path/to/imgs1, path/to/imgs2, ..]
-path: ../../Data/Birds/common_noddy/50x50/split_data
+path: ../../Data/Birds/Serena/MBay/Trip_1_cut_512_box50_border10_rgb/split_data/
 train: 
  - train
 val:   # val images (relative to 'path') 
@@ -16,4 +16,14 @@ val:   # val images (relative to 'path')
 test:  # test images (optional)
  - test  # test images (relative to 'path') 
 names:
-  0: CommonNoddy
+
+  0: BrownNoddy(B)
+  1: SilverGull(C)
+  2: BrownBooby(A)
+  3: OnchoprionSp.(D)
+  4: CTCOLONY(FCOL)
+  5: CTOTHER(F)
+  6: SternaSp.(G)
+  7: UNKNOWN(U)
+
+

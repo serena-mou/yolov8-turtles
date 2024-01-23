@@ -1,13 +1,13 @@
 from ultralytics import YOLO
 # load pretrained model
 # model = YOLO('weights/yolov8x.pt')
-model = YOLO('weights/yolov8m.pt')
+model = YOLO('weights/yolov8n.pt')
 # train the model
-model.train(data='data/MBay.yaml',
+model.train(data='data/sctld-init.yaml',
             pretrained=True,
             epochs=400,
-            imgsz=512,
             batch=4,
-            classes=[0,1,2,3,4,5,6]
+            imgsz=320,
+            patience=0
             )
 print('done')
